@@ -66,8 +66,8 @@ export default function SearchForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-[580px]">
-      <div ref={wrapRef} className="relative" style={{ opacity: 0 }}>
+    <form onSubmit={handleSubmit} className="w-full max-w-[680px] mx-auto">
+      <div ref={wrapRef} className="relative" style={{ opacity: 0, background: "transparent" }}>
         
         {/* Glow ring */}
         <div ref={glowRef}
@@ -79,10 +79,10 @@ export default function SearchForm() {
         />
 
         {/* Inner bar */}
-        <div className="relative z-10 flex items-center gap-2.5 rounded-full px-5 py-2 backdrop-blur-sm transition-all duration-200"
+        <div className="relative z-10 flex items-center gap-2.5 rounded-full px-6 py-3 backdrop-blur-sm"
           style={{
-            background: "rgba(255,255,255,0.06)",
-            border: `1px solid ${isFocused ? "rgba(74,222,128,0.4)" : "rgba(255,255,255,0.1)"}`,
+            background: "rgba(255,255,255,0.05)",
+            border: `1px solid ${isFocused ? "rgba(74,222,128,0.4)" : "rgba(255,255,255,0.08)"}`,
           }}
         >
           <Search className="flex-shrink-0 w-4 h-4 transition-colors duration-200"
@@ -95,21 +95,24 @@ export default function SearchForm() {
             onFocus={handleFocus}
             onBlur={handleBlur}
             placeholder="Enter a GitHub username…"
-            className="flex-1 min-w-0 bg-transparent border-none outline-none py-3 text-sm font-mono"
+            className="flex-1 min-w-0 bg-transparent border-none outline-none py-4 text-sm font-mono"
             style={{ color: "#e2e8f0" }}
           />
           <button
             type="submit"
             disabled={!query.trim()}
-            className="search-btn flex-shrink-0 flex items-center gap-1.5 px-5 py-2.5 rounded-full text-white text-sm font-semibold tracking-wide transition-all duration-150 disabled:opacity-30 disabled:pointer-events-none"
+            className="search-btn flex-shrink-0 flex items-center gap-1.5 px-5 py-2.5 rounded-full text-white text-xs font-medium tracking-wide transition-all duration-150 disabled:opacity-30 disabled:pointer-events-none"
             style={{
               background: "linear-gradient(135deg, #22c55e, #16a34a)",
               boxShadow: "0 4px 20px rgba(34,197,94,0.35)",
-              fontFamily: "'Syne', sans-serif"
+              fontFamily: "'Syne', sans-serif",
+              width: "fit-content",
+              paddingLeft: "24px",
+              paddingRight: "16px",
             }}
           >
             Analyze
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3 h-3" />
           </button>
         </div>
       </div>

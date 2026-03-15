@@ -60,8 +60,10 @@ export default function ProfileCard({ user }: { user: GitHubUser }) {
       ref={cardRef}
       className="relative rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 overflow-hidden"
       style={{
-        background: "rgba(255,255,255,0.04)",
-        border: "1px solid rgba(255,255,255,0.10)",
+        //background: "rgba(255,255,255,0.04)",
+        background: "none",
+        //border: "1px solid rgba(255,255,255,0.10)",
+        border: "none",
       }}
     >
       {/* Inner glow */}
@@ -146,13 +148,23 @@ export default function ProfileCard({ user }: { user: GitHubUser }) {
         {/* Stats row */}
         <div
           className="flex flex-wrap items-center justify-center md:justify-start gap-3 mt-auto pt-5"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
+          style={{ 
+            //borderTop: "1px solid rgba(255,255,255,0.08)",
+            borderTop: "none",
+            paddingTop: "8px",
+            marginTop: "8px",
+           }}
         >
           {stats.map(({ icon, value, label, color, bg, border }) => (
             <div
               key={label}
               className="stat-item flex items-center gap-2.5 px-4 py-3 rounded-xl cursor-default"
-              style={{ background: bg, border: `1px solid ${border}` }}
+              style={{ 
+                background: bg, 
+                border: `1px solid ${border}`,
+                width: "120px",
+                justifyContent: "center",
+              }}
               onMouseEnter={(e) => {
                 gsap.to(e.currentTarget, { y: -2, scale: 1.04, duration: 0.2, ease: "power2.out" });
               }}

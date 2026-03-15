@@ -68,15 +68,20 @@ export default function LanguageChart({ data }: { data: LanguageStat[] }) {
       ref={containerRef}
       className="rounded-2xl p-6 flex flex-col h-full min-h-[350px]"
       style={{
-        background: "rgba(255,255,255,0.04)",
-        border: "1px solid rgba(255,255,255,0.08)",
+        background: "transparent",
+        border: "none",
+        marginTop: "40px",
         opacity: 0, // GSAP animates in
       }}
     >
       {/* Header */}
       <div
         className="flex items-center gap-2 mb-6 pb-4"
-        style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+        style={{ 
+          borderBottom: "none", 
+          paddingLeft: "8px" ,
+          background: "rgba(255,255,255,0.03)",
+        }}
       >
         <PieChart className="w-4 h-4" style={{ color: "#4ade80" }} />
         <h2
@@ -90,7 +95,13 @@ export default function LanguageChart({ data }: { data: LanguageStat[] }) {
           style={{
             background: "rgba(74,222,128,0.1)",
             color: "#4ade80",
-            border: "1px solid rgba(74,222,128,0.2)",
+            border: "1px solid rgba(74,222,128,0.25)",
+            //fontSize: "10px",
+            padding: "3px 10px",
+            whiteSpace: "nowrap",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           {data.length} langs
@@ -159,10 +170,13 @@ export default function LanguageChart({ data }: { data: LanguageStat[] }) {
         {data.map((entry, index) => (
           <div
             key={entry.name}
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded-full"
+            className="flex items-center gap-1.5 rounded-full"
             style={{
               background: `${COLORS[index % COLORS.length]}15`,
               border: `1px solid ${COLORS[index % COLORS.length]}30`,
+              width: "120px",
+              justifyContent: "center",
+              padding: "5px 10px",
             }}
           >
             <span

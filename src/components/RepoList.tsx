@@ -71,15 +71,16 @@ export default function RepoList({ repos }: { repos: GitHubRepo[] }) {
       ref={containerRef}
       className="rounded-2xl overflow-hidden"
       style={{
-        background: "rgba(255,255,255,0.04)",
-        border: "1px solid rgba(255,255,255,0.10)",
+        background: "none",
+        border: "none",
+        marginLeft: "8px",
       }}
     >
       {/* Header */}
       <div
         className="px-6 py-5 flex items-center gap-3"
         style={{
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          borderBottom: "none",
           background: "rgba(255,255,255,0.03)",
         }}
       >
@@ -96,6 +97,11 @@ export default function RepoList({ repos }: { repos: GitHubRepo[] }) {
             background: "rgba(74,222,128,0.1)",
             color: "#4ade80",
             border: "1px solid rgba(74,222,128,0.25)",
+            padding: "3px 10px",
+            whiteSpace: "nowrap",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           {repos.length} repos
@@ -109,7 +115,7 @@ export default function RepoList({ repos }: { repos: GitHubRepo[] }) {
             key={repo.id}
             className="repo-row group px-6 py-5"
             style={{
-              borderBottom: i < repos.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none",
+              //borderBottom: i < repos.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none",
             }}
             onMouseEnter={(e) => {
               gsap.to(e.currentTarget, { backgroundColor: "rgba(255,255,255,0.04)", duration: 0.2 });
